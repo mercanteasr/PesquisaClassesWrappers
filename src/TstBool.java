@@ -28,12 +28,12 @@ public class TstBool {
      * https://docs.oracle.com/javase/8/docs/api/java/lang/Boolean.html
      */
 
-    public void logicaOr(Boolean valor1, Boolean valor2){
-        boolean resultado = Boolean.logicalOr(valor1, valor2);
+    public void logicaOr(Boolean bool1, Boolean bool2){
+        boolean resultado = Boolean.logicalOr(bool1, bool2);
         if(resultado == true){
-            System.out.println("Resultado..."+resultado+" Pois apenas um valor é true");
+            System.out.println("Resultado..."+resultado+"...Pois pelo menos um dos valores é true");
         }else{
-            System.out.println("Resultado..."+resultado+"Pois os dois valores são false");
+            System.out.println("Resultado..."+resultado+"...Pois os dois valores são false");
         }
     }
 }
