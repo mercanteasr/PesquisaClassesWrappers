@@ -1,18 +1,20 @@
 // Ricardo Mercante
 
 import java.util.Scanner;
+import java.lang.NumberFormatException;
+
 
 public class TstWrap {
-
-    static TstInt tstInt = new TstInt();
-    static TstBool tstBool = new TstBool();
-    static TstChar tstchar = new TstChar();
-    static TstDoub tstdoub = new TstDoub();
-    static TstByte tstbyte = new TstByte();
-
-
-
     public static void main(String[] args) {
+
+         TstInt tstInt = new TstInt();
+         TstBool tstbool = new TstBool();
+         TstChar tstchar = new TstChar();
+         TstDoub tstdoub = new TstDoub();
+         TstByte tstbyte = new TstByte();
+         TstShort tstshort = new TstShort();
+
+
         Scanner sc = new Scanner(System.in);
         boolean rodando = true;
 
@@ -50,9 +52,9 @@ public class TstWrap {
                     System.out.println("Valor Dois:");
                     Boolean bool2 = sc.nextBoolean();
                     System.out.println("\n | COMPARA BOOLEANOS |");
-                    tstBool.comparaBooleanos(bool1, bool2);
+                    tstbool.comparaBooleanos(bool1, bool2);
                     System.out.println("\n | LOGICA OR | ");
-                    tstBool.logicaOr(bool1, bool2);
+                    tstbool.logicaOr(bool1, bool2);
 
                     break;
                 case 3:
@@ -87,6 +89,14 @@ public class TstWrap {
 
                     break;
                 case 6:
+                    System.out.println("Passe um valor Short");
+                    Short st = sc.nextShort();
+                    sc.nextLine(); // consome o \n que sobrou do nextShort()
+                    tstshort.reverseBytes(st);
+                    System.out.println("Passe uma valor short em String");
+                    String str_st = sc.nextLine();
+                    tstshort.converteString_Short(str_st);
+
                     break;
                 case 7:
                     break;
