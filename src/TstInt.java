@@ -23,16 +23,18 @@ public class TstInt {
     }
 
     /**
-     * i) Classe Integer: método toString()
+     * i) Classe Integer: método toBinaryString()
      *
-     * ii) O método converteInt_String irá converter um valor int para uma
-     * String utilizando Integer.toString().
+     * ii) O método converteInt_Binario(int valor) irá converter um valor int
+     * para sua representação em binário, no formato String, utilizando
+     * Integer.toBinaryString().
      *
      * iii) Referência: Documentação oficial Oracle - Java Integer Class
      * https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html
      */
-    public void converteInt_String(int valorint) {
-        String resultado = Integer.toString(valorint);
+
+    public void converteInt_Binario(int valorInt) {
+        String resultado = Integer.toBinaryString(valorInt);
         System.out.println("Resultado: "+resultado);
     }
 }

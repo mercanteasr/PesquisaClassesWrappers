@@ -9,20 +9,21 @@ public class TstByte {
      * https://docs.oracle.com/javase/8/docs/api/java/lang/Byte.html
      */
     public void obtemValorByte(Byte bt){
-        byte resultado = bt.byteValue();
-        System.out.println(resultado);
+        System.out.println(bt.byteValue());
     }
+
     /**
-     * i) Classe Byte: método hashCode()
+     * i) Classe Byte: método toUnsignedInt()
      *
-     * ii) O método calculaHash irá retornar o hash code de um valor Byte
-     * utilizando hashCode().
+     * ii) O método converteSemSinal(byte valor) irá converter um valor byte
+     * para int sem sinal, no intervalo de 0 a 255, utilizando
+     * Byte.toUnsignedInt(). Exemplo: o byte -1 é convertido para 255.
      *
      * iii) Referência: Documentação oficial Oracle - Java Byte Class
      * https://docs.oracle.com/javase/8/docs/api/java/lang/Byte.html
      */
-    public void calculaHash(Byte bt){
-       int resultado =  bt.hashCode();
-        System.out.println(resultado);
+
+    public void converteSemSinal(Byte bt){
+        System.out.println(Byte.toUnsignedInt(bt));
     }
 }

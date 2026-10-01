@@ -7,12 +7,24 @@ import java.lang.NumberFormatException;
 public class TstWrap {
     public static void main(String[] args) {
 
+        float valorF1;
+        float valorF2;
+        String valorString1;
+        String valorString2;
+        short valorShort1;
+        short valorShort2;
+        byte valorByte1;
+        byte valorByte2;
+
+
          TstInt tstInt = new TstInt();
          TstBool tstbool = new TstBool();
          TstChar tstchar = new TstChar();
          TstDoub tstdoub = new TstDoub();
          TstByte tstbyte = new TstByte();
          TstShort tstshort = new TstShort();
+         TstFloat tstfloat = new TstFloat();
+
 
 
         Scanner sc = new Scanner(System.in);
@@ -43,7 +55,7 @@ public class TstWrap {
                     System.out.println("\n | TO STRING |");
                     System.out.println("Passe um valor int para ser convertido em String:");
                     int valorint = sc.nextInt();
-                    tstInt.converteInt_String(valorint);
+                    tstInt.converteInt_Binario(valorint);
 
                     break;
                 case 2:
@@ -81,24 +93,39 @@ public class TstWrap {
                     break;
                 case 5:
                     System.out.println("Passe um valor byte");
-                    byte bt = sc.nextByte();
+                    valorByte1 = sc.nextByte();
                     System.out.println("\n | OBTEM VALOR BYTE |");
-                    tstbyte.obtemValorByte(bt);
-                    System.out.println("\n | HASH CODE |");
-                    tstbyte.calculaHash(bt);
+                    tstbyte.obtemValorByte(valorByte1);
+                    System.out.println("\n | CONVERTE SEM SINAL |");
+                    tstbyte.converteSemSinal(valorByte1);
 
                     break;
                 case 6:
                     System.out.println("Passe um valor Short");
-                    Short st = sc.nextShort();
+                    valorShort1 = sc.nextShort();
                     sc.nextLine(); // consome o \n que sobrou do nextShort()
-                    tstshort.reverseBytes(st);
-                    System.out.println("Passe uma valor short em String");
-                    String str_st = sc.nextLine();
-                    tstshort.converteString_Short(str_st);
+                    System.out.println("\n | REVERSE BYTES |");
+                    tstshort.reverseBytes(valorShort1);
+                    System.out.println("Passe o primeiro valor short");
+                    valorShort1 = sc.nextShort();
+                    System.out.println("Passe o segundo valor short");
+                    valorShort2 = sc.nextShort();
+                    System.out.println("\n | COMPARA SHORT |");
+                    tstshort.comparaShort(valorShort1, valorShort2);
 
                     break;
                 case 7:
+                    System.out.println("Passe um valor em String");
+                    valorString1= sc.next();
+                    System.out.println("\n| CONVERTE FLOAT |");
+                    tstfloat.converteString_Float(valorString1);
+                    System.out.println("Passe o primeiro valor float");
+                    valorF1 = sc.nextFloat();
+                    System.out.println("Passe o segundo valor float");
+                    valorF2 = sc.nextFloat();
+                    System.out.println("\n| SOMA FLOAT |");
+                    tstfloat.somaFloat(valorF1, valorF2);
+
                     break;
                 case 8:
                     break;
