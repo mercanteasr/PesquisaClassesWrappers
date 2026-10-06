@@ -1,4 +1,4 @@
-// Ricardo Mercante
+//Nome: Ricardo Augusto Scalada Mercante - RA: a2865483
 
 public class TstInt {
 
@@ -32,9 +32,8 @@ public class TstInt {
      * iii) Referência: Documentação oficial Oracle - Java Integer Class
      * https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html
      */
-
     public void converteInt_Binario(int valorInt) {
         String resultado = Integer.toBinaryString(valorInt);
-        System.out.println("Resultado: "+resultado);
+        System.out.println("Resultado: " + resultado);
     }
 }

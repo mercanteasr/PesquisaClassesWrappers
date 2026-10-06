@@ -1,4 +1,7 @@
+//Nome: Ricardo Augusto Scalada Mercante - RA: a2865483
+
 public class TstFloat {
+
     /**
      * i) Classe Float: método parseFloat()
      *
@@ -8,9 +11,10 @@ public class TstFloat {
      * iii) Referência: Documentação oficial Oracle - Java Float Class
      * https://docs.oracle.com/javase/8/docs/api/java/lang/Float.html
      */
-    public void converteString_Float(String valor){
+    public void converteString_Float(String valor) {
         System.out.println(Float.parseFloat(valor));
     }
+
     /**
      * i) Classe Float: método sum()
      *
@@ -20,7 +24,7 @@ public class TstFloat {
      * iii) Referência: Documentação oficial Oracle - Java Float Class
      * https://docs.oracle.com/javase/8/docs/api/java/lang/Float.html
      */
-    public void somaFloat(float a, float b){
+    public void somaFloat(float a, float b) {
         System.out.println(Float.sum(a, b));
     }
 }

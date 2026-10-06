@@ -1,35 +1,22 @@
-// Ricardo Mercante
-
-import java.util.Scanner;
-import java.lang.NumberFormatException;
-
+//Nome: Ricardo Augusto Scalada Mercante - RA: a2865483
 
 public class TstWrap {
     public static void main(String[] args) {
 
-        float valorF1;
-        float valorF2;
-        String valorString1;
-        String valorString2;
-        short valorShort1;
-        short valorShort2;
-        byte valorByte1;
-        byte valorByte2;
+        // objetos
+        Leitura lt = new Leitura();
+        TstInt tstInt = new TstInt();
+        TstBool tstBool = new TstBool();
+        TstChar tstChar = new TstChar();
+        TstDoub tstDoub = new TstDoub();
+        TstByte tstByte = new TstByte();
+        TstShort tstShort = new TstShort();
+        TstFloat tstFloat = new TstFloat();
+        TstLong tstLong = new TstLong();
 
-
-         TstInt tstInt = new TstInt();
-         TstBool tstbool = new TstBool();
-         TstChar tstchar = new TstChar();
-         TstDoub tstdoub = new TstDoub();
-         TstByte tstbyte = new TstByte();
-         TstShort tstshort = new TstShort();
-         TstFloat tstfloat = new TstFloat();
-
-
-
-        Scanner sc = new Scanner(System.in);
         boolean rodando = true;
 
+        // menu
         while (rodando) {
             System.out.println("\nUSO DE CLASSES WRAPPERS");
             System.out.println("1) INTEGER");
@@ -41,103 +28,96 @@ public class TstWrap {
             System.out.println("7) FLOAT");
             System.out.println("8) LONG");
             System.out.println("0) SAIR");
-            System.out.print("ESCOLHA UMA OPCAO: \n");
-            int opcao = sc.nextInt();
 
-            switch (opcao) {
-                case 1:
-                    System.out.println("Passe dois numeros para comparar:");
-                    int inteiro1 = sc.nextInt();
-                    System.out.println("Valor Dois: ");
-                    int inteiro2 = sc.nextInt();
-                    System.out.println("\n | COMPARA INTEIROS |");
-                    tstInt.comparaInteiros(inteiro1, inteiro2);
-                    System.out.println("\n | TO STRING |");
-                    System.out.println("Passe um valor int para ser convertido em String:");
-                    int valorint = sc.nextInt();
-                    tstInt.converteInt_Binario(valorint);
+            // se digitar letra onde era numero, cai no catch e volta pro menu
+            try {
+                int opcao = Integer.parseInt(lt.entDados("ESCOLHA UMA OPCAO:"));
 
-                    break;
-                case 2:
-                    System.out.println("Passe dois valores Booleans");
-                    Boolean bool1 = sc.nextBoolean();
-                    System.out.println("Valor Dois:");
-                    Boolean bool2 = sc.nextBoolean();
-                    System.out.println("\n | COMPARA BOOLEANOS |");
-                    tstbool.comparaBooleanos(bool1, bool2);
-                    System.out.println("\n | LOGICA OR | ");
-                    tstbool.logicaOr(bool1, bool2);
+                switch (opcao) {
+                    case 1:
+                        int inteiro1 = Integer.parseInt(lt.entDados("Passe dois numeros inteiros para comparar\nValor um:"));
+                        int inteiro2 = Integer.parseInt(lt.entDados("Valor dois:"));
+                        System.out.println("\n | COMPARA INTEIROS |");
+                        tstInt.comparaInteiros(inteiro1, inteiro2);
 
-                    break;
-                case 3:
-                    System.out.println("Passe um caracter para a trasformação: ");
-                    String caracter = sc.next();
-                    System.out.println("\n | TO UPPER CASE |");
-                    System.out.println("Caracter: "+caracter+" Ficou...");
-                    tstchar.transformaMaiusculo(caracter.charAt(0));
-                    System.out.println("\n | TO LOWER CASE |");
-                    System.out.println("Caracter: "+caracter+" Ficou...");
-                    tstchar.transformaMinusculo(caracter.charAt(0));
+                        int valorInt = Integer.parseInt(lt.entDados("\nPasse um valor int para ser convertido em binario:"));
+                        System.out.println("\n | TO BINARY STRING |");
+                        tstInt.converteInt_Binario(valorInt);
+                        break;
 
-                    break;
-                case 4:
-                    System.out.println("Passe dois valores Double");
-                    Double doub1 = sc.nextDouble();
-                    System.out.println("Valor Dois: ");
-                    Double doub2 = sc.nextDouble();
-                    System.out.println("\n | MENOR VALOR |");
-                    tstdoub.menorValor(doub1,doub2);
-                    System.out.println("\n | MAIOR VALOR |");
-                    tstdoub.maiorValor(doub1,doub2);
+                    case 2:
+                        Boolean bool1 = Boolean.parseBoolean(lt.entDados("Passe dois valores booleanos (true ou false)\nValor um:"));
+                        Boolean bool2 = Boolean.parseBoolean(lt.entDados("Valor dois:"));
+                        System.out.println("\n | COMPARA BOOLEANOS |");
+                        tstBool.comparaBooleanos(bool1, bool2);
+                        System.out.println("\n | LOGICA OR |");
+                        tstBool.logicaOr(bool1, bool2);
+                        break;
 
-                    break;
-                case 5:
-                    System.out.println("Passe um valor byte");
-                    valorByte1 = sc.nextByte();
-                    System.out.println("\n | OBTEM VALOR BYTE |");
-                    tstbyte.obtemValorByte(valorByte1);
-                    System.out.println("\n | CONVERTE SEM SINAL |");
-                    tstbyte.converteSemSinal(valorByte1);
+                    case 3:
+                        String caracter = lt.entDados("Passe um caracter (letra ou numero):");
+                        System.out.println("\n | TO UPPER CASE |");
+                        System.out.println("Caracter: " + caracter.charAt(0) + " Ficou...");
+                        tstChar.transformaMaiusculo(caracter.charAt(0));
+                        System.out.println("\n | IS DIGIT |");
+                        tstChar.verificaDigito(caracter.charAt(0));
+                        break;
 
-                    break;
-                case 6:
-                    System.out.println("Passe um valor Short");
-                    valorShort1 = sc.nextShort();
-                    sc.nextLine(); // consome o \n que sobrou do nextShort()
-                    System.out.println("\n | REVERSE BYTES |");
-                    tstshort.reverseBytes(valorShort1);
-                    System.out.println("Passe o primeiro valor short");
-                    valorShort1 = sc.nextShort();
-                    System.out.println("Passe o segundo valor short");
-                    valorShort2 = sc.nextShort();
-                    System.out.println("\n | COMPARA SHORT |");
-                    tstshort.comparaShort(valorShort1, valorShort2);
+                    case 4:
+                        Double doub1 = Double.parseDouble(lt.entDados("Passe dois valores double (0 e 0 para ver NaN)\nValor um:"));
+                        Double doub2 = Double.parseDouble(lt.entDados("Valor dois:"));
+                        System.out.println("\n | MAIOR VALOR |");
+                        tstDoub.maiorValor(doub1, doub2);
+                        System.out.println("\n | VERIFICA SE E NaN |");
+                        tstDoub.verificaNaN(doub1, doub2);
+                        break;
 
-                    break;
-                case 7:
-                    System.out.println("Passe um valor em String");
-                    valorString1= sc.next();
-                    System.out.println("\n| CONVERTE FLOAT |");
-                    tstfloat.converteString_Float(valorString1);
-                    System.out.println("Passe o primeiro valor float");
-                    valorF1 = sc.nextFloat();
-                    System.out.println("Passe o segundo valor float");
-                    valorF2 = sc.nextFloat();
-                    System.out.println("\n| SOMA FLOAT |");
-                    tstfloat.somaFloat(valorF1, valorF2);
+                    case 5:
+                        byte valorByte = Byte.parseByte(lt.entDados("Passe um valor byte (-128 a 127):"));
+                        System.out.println("\n | CONVERTE BYTE PARA DOUBLE |");
+                        tstByte.converteByte_Double(valorByte);
+                        System.out.println("\n | CONVERTE SEM SINAL |");
+                        tstByte.converteSemSinal(valorByte);
+                        break;
 
-                    break;
-                case 8:
-                    break;
-                case 0:
-                    System.out.println("Encerrando...");
-                    rodando = false;
-                    break;
-                default:
-                    System.out.println("Digite um numero correspondente a tabela!");
+                    case 6:
+                        short valorShort = Short.parseShort(lt.entDados("Passe um valor short (-32768 a 32767):"));
+                        System.out.println("\n | TO STRING |");
+                        tstShort.converteShort_String(valorShort);
+                        System.out.println("\n | REVERSE BYTES |");
+                        tstShort.reverseBytes(valorShort);
+                        break;
+
+                    case 7:
+                        String valorString = lt.entDados("Passe um valor decimal em String (ex: 3.14):");
+                        System.out.println("\n | CONVERTE FLOAT |");
+                        tstFloat.converteString_Float(valorString);
+
+                        float valorF1 = Float.parseFloat(lt.entDados("\nPasse dois valores float para somar\nValor um:"));
+                        float valorF2 = Float.parseFloat(lt.entDados("Valor dois:"));
+                        System.out.println("\n | SOMA FLOAT |");
+                        tstFloat.somaFloat(valorF1, valorF2);
+                        break;
+
+                    case 8:
+                        long valorLong = Long.parseLong(lt.entDados("Passe um valor long:"));
+                        System.out.println("\n | VERIFICA SINAL |");
+                        tstLong.verificaSinal(valorLong);
+                        System.out.println("\n | MAIOR POTENCIA DE 2 |");
+                        tstLong.maiorPotencia2(valorLong);
+                        break;
+
+                    case 0:
+                        System.out.println("Encerrando...");
+                        rodando = false;
+                        break;
+
+                    default:
+                        System.out.println("Digite um numero correspondente a tabela!");
+                }
+            } catch (NumberFormatException e) {
+                System.out.println("Digite apenas numeros!");
             }
         }
-
-        sc.close();
     }
 }
